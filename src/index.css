@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode (toggle via `dark` on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Instrument Sans', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #07090f;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-muted: #94a3b8;
+  --color-fg: #e5e7eb;
+
+  --shadow-glass: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply min-h-dvh font-sans antialiased;
+    background-color: #f8fafc;
+    color: #0f172a;
+    background-image:
+      radial-gradient(900px 520px at 12% -8%, rgba(139, 92, 246, 0.14), transparent 55%),
+      radial-gradient(800px 480px at 92% 6%, rgba(34, 211, 238, 0.12), transparent 48%),
+      radial-gradient(640px 420px at 48% 100%, rgba(59, 130, 246, 0.08), transparent 52%);
+  }
+
+  .dark body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    background-image:
+      radial-gradient(1200px 600px at 15% -10%, rgba(139, 92, 246, 0.35), transparent 55%),
+      radial-gradient(900px 500px at 90% 10%, rgba(34, 211, 238, 0.18), transparent 50%),
+      radial-gradient(700px 500px at 50% 100%, rgba(59, 130, 246, 0.12), transparent 55%);
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: #fff;
+  }
+
+  .dark ::selection {
+    background: rgba(139, 92, 246, 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline-2 outline-offset-4 outline-violet-500/90 dark:outline-cyan-400/80;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-slate-200/80 bg-white/75 shadow-sm backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.05] dark:shadow-[var(--shadow-glass)];
+  }
+
+  .glass-strong {
+    @apply border border-slate-200/90 bg-white/85 backdrop-blur-2xl dark:border-white/[0.1] dark:bg-white/[0.07];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 bg-clip-text text-transparent dark:from-violet-300 dark:via-fuchsia-200 dark:to-cyan-300;
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+}

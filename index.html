@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Akshat Raj — B.Tech CSE (AI & ML) student, fullstack and software developer. Portfolio, projects, certifications, and contact."
+    />
+    <meta name="keywords" content="Akshat Raj, Fullstack Developer, Software Developer, React, Node.js, Portfolio, LPU, DSA" />
+    <meta name="author" content="Akshat Raj" />
+    <meta property="og:title" content="Akshat Raj — Fullstack & Software Developer" />
+    <meta
+      property="og:description"
+      content="Modern portfolio showcasing fullstack engineering, projects, certifications, and coding profiles."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Akshat Raj — Fullstack & Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var k = 'akshat-portfolio-theme' /* keep in sync with src/theme/themeStorage.ts */
+          var t = localStorage.getItem(k)
+          var dark = t !== 'light'
+          document.documentElement.classList.toggle('dark', dark)
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
