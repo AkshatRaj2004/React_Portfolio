@@ -95,7 +95,7 @@ export const education = [
     degree: 'B.Tech — Computer Science & Engineering (AI & ML)',
     school: 'Lovely Professional University, Punjab',
     period: '2023 — 2027',
-    detail: 'CGPA: 7.26',
+    detail: 'CGPA: 7.35',
     highlight: 'Core CS, ML coursework, and continuous project building.',
   },
   {
