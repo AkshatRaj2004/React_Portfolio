@@ -7,6 +7,7 @@ import { Navbar } from './components/layout/Navbar'
 import { AboutSection } from './components/sections/AboutSection'
 import { ContactSection } from './components/sections/ContactSection'
 import { ExperienceSection } from './components/sections/ExperienceSection'
+import { HighlightsSection } from './components/sections/HighlightsSection'
 import { HeroSection } from './components/sections/HeroSection'
 import { ProjectsSection } from './components/sections/ProjectsSection'
 import { ResumeSection } from './components/sections/ResumeSection'
@@ -34,9 +35,10 @@ function App() {
       <main className="relative">
         <HeroSection />
         <AboutSection />
+        <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
-        <ExperienceSection />
+        <HighlightsSection />
         <ResumeSection />
         <ContactSection />
       </main>

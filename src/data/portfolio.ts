@@ -83,7 +83,7 @@ export const about = {
   ],
   personality:
     'Curious, detail-oriented, and calm under deadlines. I prefer clarity—readable components, predictable state, and interfaces that respect users.',
-  status: 'Exploring internship opportunities for 2026.',
+  status: 'Currently a Product Management Intern at TechBridge (since Oct 2026).',
   languages: [
     { name: 'English', level: 'Proficient' },
     { name: 'Hindi', level: 'Native' },
@@ -95,7 +95,7 @@ export const education = [
     degree: 'B.Tech — Computer Science & Engineering (AI & ML)',
     school: 'Lovely Professional University, Punjab',
     period: '2023 — 2027',
-    detail: 'CGPA: 7.43',
+    detail: 'CGPA: 7.45',
     highlight: 'Core CS, ML coursework, and continuous project building.',
   },
   {
@@ -113,6 +113,28 @@ export const education = [
     highlight: 'Distinction across STEM subjects.',
   },
 ] as const
+
+export type Experience = {
+  role: string
+  company: string
+  type: string
+  period: string
+  /** Optional one-line summary of the role. */
+  summary?: string
+  /** Optional bullet points: responsibilities, impact, tools. */
+  highlights?: string[]
+  current?: boolean
+}
+
+export const experience: Experience[] = [
+  {
+    role: 'Product Management Intern',
+    company: 'TechBridge',
+    type: 'Internship',
+    period: 'Oct 2026 — Present',
+    current: true,
+  },
+]
 
 export type SkillCategory = {
   title: string
@@ -316,9 +338,10 @@ export const achievements = [
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'highlights', label: 'Highlights' },
   { id: 'resume', label: 'Resume' },
   { id: 'contact', label: 'Contact' },
 ] as const
