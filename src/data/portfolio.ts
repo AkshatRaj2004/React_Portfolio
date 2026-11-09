@@ -215,22 +215,32 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'AI-Resume Analyzer',
+    title: 'AI Operations Copilot',
     summary:
-      'AI-powered resume analyzer using NLP and the Gemini API—matches resumes against job descriptions with ATS-style scoring and keyword extraction (~85% matching accuracy), plus skill extraction, resume parsing, and personalized improvement suggestions.',
-    stack: ['Python', 'NLP', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'Gemini API', 'Scikit-learn'],
-    github: 'https://github.com/AkshatRaj2004/AI_Resume_Analyzer_1',
-    media: { type: 'image', src: '/ai-resume-analyzer.png' },
+      'Enterprise AI assistant that answers business questions from company documents and operations data in one conversation. A LangGraph agent chooses between semantic search over a FAISS index, full-document reads and read-only SQL, and cites the exact passages and queries behind every answer—95%+ contextual accuracy and ~80% less manual lookup time.',
+    stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'RAG', 'FAISS', 'DeepSeek', 'MongoDB', 'SQLite', 'React', 'Docker'],
+    github: 'https://github.com/AkshatRaj2004/AI-Operations-Copilot',
+    media: { type: 'image', src: '/ai-operations-copilot.jpg' },
+    accent: 'violet',
+  },
+  {
+    title: 'Resume Analyzer',
+    summary:
+      'Compares a resume against a job description and returns a reproducible 0–100 ATS match score, a requirement-by-requirement skill map with evidence, missing keywords, bullet rewrites and a tailored summary. The LLM only reports structured observations; the weighted score is computed in code and every skill match is re-verified by literal keyword search.',
+    stack: ['TypeScript', 'React Router 7 (SSR)', 'Vite', 'Tailwind CSS', 'DeepSeek API', 'Docker'],
+    github: 'https://github.com/AkshatRaj2004/Resume-Analyzer',
+    media: { type: 'image', src: '/resume-analyzer.jpg' },
     accent: 'emerald',
   },
   {
-    title: 'Resume Skill Extraction & Candidate Clustering',
+    title: 'TinyGate — URL Shortener',
     summary:
-      'AI resume-screening app that extracts skills with NLP, vectorizes resumes with TF-IDF, and clusters similar candidates using K-Means—served through an interactive Streamlit dashboard to streamline recruiter workflows.',
-    stack: ['Python', 'Streamlit', 'NLP', 'Scikit-learn', 'TF-IDF', 'K-Means', 'Pandas'],
-    github: 'https://github.com/AkshatRaj2004/ResumeSkillExtraction-CandidateClustering',
-    media: { type: 'image', src: '/resume-skill-clustering.png' },
-    accent: 'amber',
+      'Full-stack URL shortening platform with JWT authentication, protected REST APIs, link management and real-time click analytics. Containerised with Docker Compose and deployed on AWS EC2 behind an Nginx reverse proxy.',
+    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Docker', 'AWS EC2', 'Nginx'],
+    github: 'https://github.com/AkshatRaj2004/TinyGate-URL-Shortener',
+    live: 'https://tinygate.tech/',
+    media: { type: 'image', src: '/tinygate.jpg' },
+    accent: 'cyan',
   },
   {
     title: 'System Manager & Deadlock Resolver',
@@ -239,26 +249,7 @@ export const projects: Project[] = [
     stack: ['C', 'OS Concepts', 'Concurrency', 'Systems'],
     github: 'https://github.com/AkshatRaj2004/OSproject',
     media: { type: 'image', src: '/deadlock-manager.png' },
-    accent: 'violet',
-  },
-  {
-    title: 'Simple Calculator — Web UI',
-    summary:
-      'A minimal, responsive calculator with deliberate spacing, keyboard-friendly controls, and a clean visual hierarchy—practice in UI clarity.',
-    stack: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/AkshatRaj2004/Simplecalculator',
-    live: 'https://akshatraj2004.github.io/Simplecalculator/',
-    media: { type: 'image', src: '/calculator.png' },
-    accent: 'cyan',
-  },
-  {
-    title: 'Smart Logistics Services (ML)',
-    summary:
-      'Regression-oriented logistics modeling with Scikit-learn & Pandas—feature engineering, training, and evaluation using RMSE, MAE, and R².',
-    stack: ['Python', 'Scikit-learn', 'Pandas', 'ML'],
-    github: 'https://github.com/AkshatRaj2004/Smart_logistics_services',
-    media: { type: 'video', src: '/Smart.mp4' },
-    accent: 'rose',
+    accent: 'amber',
   },
 ]
 

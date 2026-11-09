@@ -111,7 +111,7 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Projects"
-          title="Selected work across web, systems, and ML"
+          title="Selected work across AI, full-stack, and systems"
           subtitle="Each card links to artifacts you can inspect—demos where hosted, repositories everywhere else."
         />
 
