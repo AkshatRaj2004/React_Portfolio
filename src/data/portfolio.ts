@@ -83,7 +83,7 @@ export const about = {
   ],
   personality:
     'Curious, detail-oriented, and calm under deadlines. I prefer clarity—readable components, predictable state, and interfaces that respect users.',
-  status: 'Currently a Product Management Intern at TechBridge (since Oct 2026).',
+  status: 'Currently a Business Analyst — Product Management Intern at TechBridge (since Oct 2026).',
   languages: [
     { name: 'English', level: 'Proficient' },
     { name: 'Hindi', level: 'Native' },
@@ -109,7 +109,7 @@ export const education = [
     degree: 'Secondary (Class X)',
     school: 'City Montessori School, Lucknow',
     period: '2021',
-    detail: 'Percentage: 95.2%',
+    detail: 'Percentage: 92.80%',
     highlight: 'Distinction across STEM subjects.',
   },
 ] as const
@@ -118,6 +118,7 @@ export type Experience = {
   role: string
   company: string
   type: string
+  location?: string
   period: string
   /** Optional one-line summary of the role. */
   summary?: string
@@ -128,11 +129,27 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: 'Product Management Intern',
+    role: 'Business Analyst — Product Management Intern',
     company: 'TechBridge',
     type: 'Internship',
+    location: 'Gurgaon, Haryana',
     period: 'Oct 2026 — Present',
+    highlights: [
+      'Working on ObservaX, an AIOps product, using tbXMS and tbTA.',
+      'Write user stories and feature specs with stakeholders so engineers can build from a clear problem statement.',
+      'Analyse product and user data in SQL and Excel to support feature decisions.',
+    ],
     current: true,
+  },
+  {
+    role: 'Cloud Intern',
+    company: 'Microsoft Azure (Microsoft Elevate × AICTE)',
+    type: 'Internship',
+    location: 'Remote',
+    period: 'Jan 2026 — Feb 2026',
+    highlights: [
+      'Completed a 4-week technical internship on Microsoft Azure: virtual machines, storage, basic networking and cloud deployment.',
+    ],
   },
 ]
 
@@ -312,22 +329,24 @@ export const codingProfiles = [
 
 export const achievements = [
   {
-    title: 'Consistent DSA practice',
-    detail:
-      'Structured problem solving across LeetCode and CodeChef with emphasis on patterns transferable to interviews.',
+    title: 'GirlScript Summer of Code (GSSoC ’26)',
+    detail: 'Contributor collaborating on open-source projects using Git.',
+  },
+  {
+    title: '600+ problems solved',
+    detail: 'Across LeetCode and CodeChef; earned the 200 Days LeetCode Badge.',
+  },
+  {
+    title: 'Naukri Campus Young Turks 2025',
+    detail: 'Scored 95.02 percentile and qualified for Round 2.',
+  },
+  {
+    title: 'FLAMES ’25 Summer Training',
+    detail: 'Completed the intensive DSA with Java program by W3Grads.',
   },
   {
     title: 'Hackathon participation',
     detail: 'Binary Blitz — Coding Ninjas (verified credential).',
-  },
-  {
-    title: 'Cloud & AI literacy',
-    detail: 'Oracle Generative AI and OCI Foundations credentials.',
-  },
-  {
-    title: 'Open-source presence',
-    detail:
-      'Public GitHub portfolio with OS, web, and ML repositories—each project includes runnable artifacts or demos where applicable.',
   },
 ] as const
 

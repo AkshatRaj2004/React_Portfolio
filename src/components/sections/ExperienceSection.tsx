@@ -43,7 +43,10 @@ export function ExperienceSection() {
                     </div>
                   </div>
                   <div className="flex flex-col items-start gap-1.5 sm:items-end">
-                    <p className="text-xs font-medium text-slate-500">{job.period}</p>
+                    <p className="text-xs font-medium text-slate-500">
+                      {job.period}
+                      {job.location ? <span className="text-slate-400 dark:text-slate-600"> · {job.location}</span> : null}
+                    </p>
                     <span className="rounded-full border border-slate-200/90 bg-white/80 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
                       {job.type}
                     </span>
