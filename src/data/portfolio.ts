@@ -24,7 +24,7 @@ export const site = {
    * Bump this whenever you replace `public/Akshat_Resume.pdf` so browsers and CDNs
    * fetch the new file instead of a cached copy.
    */
-  resumeVersion: '2026-05-15-1',
+  resumeVersion: '2026-11-09-1',
   profileImagePath: '/akshat.png',
 } as const
 
@@ -294,8 +294,13 @@ export const codingProfiles = [
   {
     platform: 'LeetCode',
     username: 'akshatraj2004',
-    url: 'https://leetcode.com/akshatraj2004',
-    highlights: ['275+ problems solved', 'Contest rating ~1539', '111-day streak'],
+    url: 'https://leetcode.com/u/akshatraj2004/',
+    highlights: [
+      '423 problems solved — 180 Easy · 197 Medium · 46 Hard',
+      'Contest rating 1668 · top 16.87% (10 contests)',
+      '200 Days Badge 2026 · 307 active days',
+      '111-day max streak',
+    ],
   },
   {
     platform: 'CodeChef',
