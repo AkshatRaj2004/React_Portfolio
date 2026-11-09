@@ -60,10 +60,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
           )}
           <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-slate-50 via-transparent to-transparent opacity-90 dark:from-[#07090f] dark:opacity-80" />
+          {project.live ? (
+            <span className="absolute left-4 top-4 z-[3] inline-flex items-center gap-1.5 rounded-full border border-emerald-300/70 bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 shadow-sm backdrop-blur dark:border-emerald-400/30 dark:bg-black/60 dark:text-emerald-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden />
+              Live
+            </span>
+          ) : null}
         </div>
 
         <div className="flex flex-1 flex-col p-6">
           <h3 className="font-display text-lg font-semibold text-slate-900 dark:text-white">{project.title}</h3>
+          {project.metrics && project.metrics.length > 0 ? (
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {project.metrics.map((m) => (
+                <li
+                  key={m}
+                  className="rounded-md bg-violet-500/10 px-2 py-0.5 text-xs font-semibold text-violet-700 ring-1 ring-violet-500/20 dark:bg-cyan-400/10 dark:text-cyan-200 dark:ring-cyan-300/20"
+                >
+                  {m}
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{project.summary}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.stack.map((t) => (

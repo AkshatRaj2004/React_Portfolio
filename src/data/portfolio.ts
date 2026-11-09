@@ -36,15 +36,15 @@ export function getResumeUrl(): string {
 export const hero = {
   greeting: "Hi, I'm",
   headlineRoles: [
-    'Fullstack Developer',
-    'Software Developer',
-    'B.Tech CSE Student',
-    'Product-minded Builder',
+    'Full-stack Developer',
+    'Software Engineer',
+    'AI / LLM Builder',
+    'Product Management Intern',
     'DSA Problem Solver',
   ],
   tagline:
-    'I craft polished web experiences with React and modern CSS—pairing strong interfaces with disciplined problem-solving and ML curiosity.',
-  chips: ['React & UI engineering', 'DSA & algorithms', 'Exploring AI/ML'],
+    'Final-year CS student shipping production software in Java, JavaScript and Python—REST APIs with automated tests, Docker on AWS, and LLM tools built on RAG and agents.',
+  chips: ['Full-stack · React & Node', 'AI · RAG & agents', 'Cloud · Docker & AWS'],
 } as const
 
 export const socialLinks = [
@@ -153,69 +153,39 @@ export const experience: Experience[] = [
   },
 ]
 
-export type SkillCategory = {
+export type SkillGroup = {
   title: string
-  description: string
-  items: { name: string; level: number }[]
+  icon: 'languages' | 'fundamentals' | 'web' | 'testing' | 'tools' | 'ai'
+  items: string[]
 }
 
-export const skillCategories: SkillCategory[] = [
+/** Mirrors the Technical Skills section of the résumé. */
+export const skillGroups: SkillGroup[] = [
+  { title: 'Languages', icon: 'languages', items: ['Java', 'JavaScript', 'Python', 'SQL (MySQL)', 'HTML', 'CSS'] },
   {
-    title: 'Frontend & UI',
-    description: 'Interfaces, design systems, and interaction polish.',
-    items: [
-      { name: 'React', level: 88 },
-      { name: 'HTML / Semantic markup', level: 92 },
-      { name: 'CSS / Tailwind mindset', level: 90 },
-      { name: 'JavaScript (ESNext)', level: 85 },
-      { name: 'Responsive Web Design', level: 82 },
-    ],
+    title: 'Web',
+    icon: 'web',
+    items: ['React.js', 'Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'MongoDB'],
   },
   {
-    title: 'Languages & Core CS',
-    description: 'Languages I reach for daily and in contests.',
-    items: [
-      { name: 'Java', level: 90 },
-      { name: 'C++', level: 88 },
-      { name: 'Python', level: 82 },
-    ],
+    title: 'AI & LLM',
+    icon: 'ai',
+    items: ['LangChain', 'LangGraph', 'Gemini API', 'FAISS', 'Prompt Engineering', 'NLP'],
   },
   {
-    title: 'Backend & APIs',
-    description: 'Enough server-side context to ship end-to-end.',
-    items: [
-      { name: 'REST APIs', level: 76 },
-      { name: 'Node.js', level: 68 },
-      { name: 'Express.js', level: 72 },
-    ],
+    title: 'Testing',
+    icon: 'testing',
+    items: ['Postman', 'Playwright', 'Selenium', 'JSDOM', 'Unit tests', 'End-to-end tests'],
   },
   {
-    title: 'DSA & Problem Solving',
-    description: 'Structured practice on global platforms.',
-    items: [
-      { name: 'Data Structures', level: 86 },
-      { name: 'Algorithms', level: 84 },
-      { name: 'Contest programming', level: 78 },
-    ],
+    title: 'Tools & Cloud',
+    icon: 'tools',
+    items: ['Git', 'GitHub', 'Docker', 'AWS EC2', 'Nginx', 'Cursor', 'Copilot'],
   },
   {
-    title: 'AI / ML (Exploration)',
-    description: 'Coursework and applied mini-projects.',
-    items: [
-      { name: 'Machine Learning', level: 72 },
-      { name: 'Supervised Learning', level: 65 },
-      { name: 'Natural Language Processing', level: 62 },
-    ],
-  },
-  {
-    title: 'Tools & Workflow',
-    description: 'How I ship and collaborate.',
-    items: [
-      { name: 'Git / GitHub', level: 88 },
-      { name: 'VS Code', level: 90 },
-      { name: 'Docker', level: 75 },
-      { name: 'Linux familiarity', level: 74 },
-    ],
+    title: 'Fundamentals',
+    icon: 'fundamentals',
+    items: ['Data Structures', 'Algorithms', 'Arrays', 'Strings', 'Linked List', 'Stack', 'Queue', 'Trees', 'Graphs'],
   },
 ]
 
@@ -223,6 +193,8 @@ export type Project = {
   title: string
   summary: string
   stack: string[]
+  /** Headline results shown as badges on the card. */
+  metrics?: string[]
   github?: string
   live?: string
   /** Optional media under /public for previews */
@@ -235,6 +207,7 @@ export const projects: Project[] = [
     title: 'AI Operations Copilot',
     summary:
       'Enterprise AI assistant that answers business questions from company documents and operations data in one conversation. A LangGraph agent chooses between semantic search over a FAISS index, full-document reads and read-only SQL, and cites the exact passages and queries behind every answer—95%+ contextual accuracy and ~80% less manual lookup time.',
+    metrics: ['95%+ contextual accuracy', '~80% less lookup time'],
     stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'RAG', 'FAISS', 'DeepSeek', 'MongoDB', 'SQLite', 'React', 'Docker'],
     github: 'https://github.com/AkshatRaj2004/AI-Operations-Copilot',
     media: { type: 'image', src: '/ai-operations-copilot.jpg' },
@@ -244,6 +217,7 @@ export const projects: Project[] = [
     title: 'Resume Analyzer',
     summary:
       'Compares a resume against a job description and returns a reproducible 0–100 ATS match score, a requirement-by-requirement skill map with evidence, missing keywords, bullet rewrites and a tailored summary. The LLM only reports structured observations; the weighted score is computed in code and every skill match is re-verified by literal keyword search.',
+    metrics: ['Reproducible 0–100 ATS score', 'Keyword-verified matches'],
     stack: ['TypeScript', 'React Router 7 (SSR)', 'Vite', 'Tailwind CSS', 'DeepSeek API', 'Docker'],
     github: 'https://github.com/AkshatRaj2004/Resume-Analyzer',
     media: { type: 'image', src: '/resume-analyzer.jpg' },
@@ -253,7 +227,8 @@ export const projects: Project[] = [
     title: 'TinyGate — URL Shortener',
     summary:
       'Full-stack URL shortening platform with JWT authentication, protected REST APIs, link management and real-time click analytics. Containerised with Docker Compose and deployed on AWS EC2 behind an Nginx reverse proxy.',
-    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Docker', 'AWS EC2', 'Nginx'],
+    metrics: ['<200ms response time', 'Live in production'],
+    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Docker', 'AWS EC2', 'Nginx', 'Playwright', 'Postman'],
     github: 'https://github.com/AkshatRaj2004/TinyGate-URL-Shortener',
     live: 'https://tinygate.tech/',
     media: { type: 'image', src: '/tinygate.jpg' },

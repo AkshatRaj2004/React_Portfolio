@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowDownRight, Download, Mail } from 'lucide-react'
 import { useState } from 'react'
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
-import { getResumeUrl, hero, site, socialLinks } from '../../data/portfolio'
+import { experience, getResumeUrl, hero, site, socialLinks } from '../../data/portfolio'
 import { useTypingRoles } from '../../hooks/useTypingRoles'
 import { cn } from '../../lib/cn'
 
@@ -16,6 +16,7 @@ const iconMap = {
 export function HeroSection() {
   const typed = useTypingRoles(hero.headlineRoles)
   const [imgOk, setImgOk] = useState(true)
+  const currentJob = experience.find((e) => e.current)
 
   return (
     <section id="home" className="relative scroll-mt-28 pt-28">
@@ -151,11 +152,19 @@ export function HeroSection() {
             <div className="mt-4 flex items-center justify-between gap-3 px-2 pb-2">
               <div>
                 <p className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500">Role</p>
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">Fullstack Developer · Software Developer</p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">Full-stack · AI · Product</p>
               </div>
-              <div className="rounded-xl border border-slate-200/90 bg-white/80 px-3 py-2 text-xs text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/[0.05] dark:text-slate-300 dark:shadow-none">
-                Open to <span className="text-violet-700 dark:text-cyan-300">internships · 2026</span>
-              </div>
+              {currentJob ? (
+                <div className="flex items-center gap-2 rounded-xl border border-emerald-300/60 bg-emerald-50/80 px-3 py-2 text-xs text-slate-700 shadow-sm dark:border-emerald-400/20 dark:bg-emerald-400/[0.07] dark:text-slate-300 dark:shadow-none">
+                  <span className="relative flex h-2 w-2" aria-hidden>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:hidden" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+                  </span>
+                  <span>
+                    Now at <span className="font-semibold text-emerald-700 dark:text-emerald-300">{currentJob.company}</span>
+                  </span>
+                </div>
+              ) : null}
             </div>
           </div>
         </motion.div>
